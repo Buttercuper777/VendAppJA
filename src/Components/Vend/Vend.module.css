@@ -1,0 +1,7 @@
+.vendBody{
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 350px;
+    grid-column-gap: 15px;
+    /* border: solid 1px #000; */
+}

@@ -1,0 +1,68 @@
+.ShopItem{
+    width: 170px;
+    margin-bottom: 20px !important;
+    margin: 0px 10px;
+    /* border: solid 1px #000; */
+}
+.itemImg{
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #dedede;
+    border: solid 3px #6e8ef8;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+
+.BShow{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.712);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    position:absolute;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.BShow:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.itemImg img{
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.itemDisc{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 5px;
+    width: 96%;
+    margin: 0 auto;
+}
+.itemDisc a{
+    font-size: 17px;
+    font-weight: 700;
+    color: rgb(36, 36, 36);
+}
+
+.itemDisc p{
+    font-size: 15px;
+    color: rgb(36, 36, 36);
+    font-weight: 600;
+}
+
+.price{
+    color: #6e8ef8 !important;
+    font-weight: 700;
+    font-size: 17px !important;
+}
