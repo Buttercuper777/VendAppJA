@@ -34,10 +34,9 @@ componentDidMount(){
 
   render(){
     const {error, isLoaded, items} = this.state;
-    // if (error){
-    //   return <p>Error {error.message}</p>
-    // }
-
+    if (error){
+      return <p>Error {error.message}</p>
+    }
     return(
       items.map(item => (
       <div className={s.ShopItem} key={item.id}>

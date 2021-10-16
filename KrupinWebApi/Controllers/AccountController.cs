@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace KrupinWebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
 
@@ -35,7 +35,7 @@ namespace KrupinWebApi.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                return Content(User.Identity.Name);
+                return Ok();
             }
             else
             {
@@ -43,7 +43,7 @@ namespace KrupinWebApi.Controllers
                 Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, HttpContext.Request.Query["key"].ToString(), false, false);
                 if (result.Succeeded)
                 {
-                    return Redirect("Account/");
+                    return Ok();
                 }
 
                 return Unauthorized();

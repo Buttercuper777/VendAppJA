@@ -1,4 +1,4 @@
-import react from 'react';
+import { Link, NavLink } from 'react-router-dom'
 import s from './CoinsManager.module.css';
 import Coin from './Coin/Coin'
 import '../../App.css';
