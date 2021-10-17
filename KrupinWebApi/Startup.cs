@@ -30,6 +30,7 @@ namespace KrupinWebApi
         {
             services.AddControllers();
 
+
             services.AddDbContext<DBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DBContext")));
 
@@ -74,6 +75,7 @@ namespace KrupinWebApi
             {
                 options.AllowAnyOrigin();
                 options.AllowAnyMethod();
+                options.AllowAnyHeader();
             });
 
             app.UseHttpsRedirection();
