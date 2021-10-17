@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import s from './Admin.module.css';
 import Header from './Header/Header';
-import ItemContent from './ItemsContent/ItemsContent';
+import ItemsContent from './ItemsContent/ItemsContent';
 
 export default class Admin extends Component{
   constructor(props){
@@ -41,7 +41,7 @@ render(){
   return(
     <div>
       <Header/>
-      <ItemContent/>
+      <ItemsContent/>
     </div>
     );
     // const {error, isLoaded, status} = this.state;

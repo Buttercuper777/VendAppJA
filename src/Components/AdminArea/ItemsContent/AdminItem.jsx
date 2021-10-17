@@ -1,58 +1,87 @@
 import React, { Component } from 'react'
 import s from '../Admin.module.css';
+import { useState } from 'react';
 
+// function useForceUpdate(){
+//   const [value, setValue] = useState(0); // integer state
+//   return () => setValue(value => value + 1); // update the state to force render
+// }
 
 export default class AdminItem extends Component{
   constructor(props){
     super(props);
     this.state = {
       error: null,
-      isLoaded: false
+      isLoaded: false,
+      items: []
     };
+  }
+  
+  onTodoChange(id, value, def){
+    const defSrc = arguments[2];
+    let elem = document.getElementById(id + 'img');
+    if(value.length == 0)
+      elem.src = defSrc;
+    else
+      elem.src = value;
+  }
+
+  onDelItem(id, dName){
+    let delConfirm = window.confirm("Удалить продукт: " + dName + "?");
+
+    if(delConfirm){
+      fetch('https://localhost:5001/api/ProdItems/' + id, { method: 'DELETE' });
+      let x = document.getElementById(id + '_item');
+      x.style.transition = "0.3s";
+      x.style.opacity = "0";
+      setTimeout(function(){
+        x.style.display = "none";
+      },300)
+    }
+
+  }
+
+componentDidMount(){
+  fetch("https://localhost:5001/api/ProdItems")
+  .then(res => res.json())
+  .then(
+    (result) => {
+      this.setState({
+        isLoaded: true,
+        items: result
+      });
+    }, 
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+  )
 }
 
-// componentDidMount(){
-//   fetch("https://localhost:5001/api/Account?key=password123")
-//   .then(
-//     function(response){
-//       console.log(response.status);
-//     }
-//   )
-  // fetch("https://localhost:5001/api/Account/")
-  // .then(res => res.json())
-  // .then(
-  //   (result) => {
-  //     this.setState({
-  //       isLoaded: true,
-  //       status: result.status
-  //     });
-  //   }, 
-  //   (error) => {
-  //     this.setState({
-  //       isLoaded: true,
-  //       error
-  //     });
-  //   }
-  // )
-
-
 render(){
+  const {error, isLoaded, items} = this.state;
+  if (error){
+    return <p>Error {error.message}</p>
+  }
   return(
-    <div className={s.AdminItem}>
-      <p className={s.ItemId}>Id: 1</p>
+    items.map(item => (
+    <div className={s.AdminItem} id={item.id + '_item'}>
+      <p className={s.ItemId}>Name: {item.name}; Price: {item.price}; Num:  {item.number}</p>
 
       <div className={s.ItemData}>
 
         <div>
           <div className={s.ItemImg}>
-            <img src="https://www.coca-cola.ru/content/dam/one/ru/ru/2021/07/new-coca-cola--design/0-cola-zahod-kaizen-1020_new.jpg" alt="cola" />
+            <img id={item.id + 'img'} src={item.imgPath} alt={item.name}/>
           </div>
         </div>
 
         <div className={s.ItemInputBlock}>
-          <input placeholder="Название" type="text" />
+          <input type="text" placeholder="Название" type="text"/>
           <input placeholder="Цена" type="number" />
-          <input placeholder="URL Картинки" type="text" />
+          <input placeholder="URL Картинки" type="text" onChange={e => this.onTodoChange(item.id, e.target.value, item.imgPath)} />
           <input placeholder="Количество" type="number" />
         </div>
 
@@ -60,32 +89,12 @@ render(){
 
       <div className={s.ItemBtnBlock}>
         <button className={s.EditBtn}>Изменить</button>
-        <button className={s.DelBtn}>Удалить</button>
+        <button className={s.DelBtn} onClick={ e => this.onDelItem(item.id, item.name)}>Удалить</button>
       </div>
 
     </div>
+    ))
     );
-    // const {error, isLoaded, status} = this.state;
-    // if (error){
-    //   return <p>Error {error.message}</p>
-    // }
-
-    // if (status)
-    //   return <p>{status}</p>
-    
-    // else{
-
-    
-    // return (
-    //   items.map(item =>(
-    //   <div>
-    //     <button className={s.coinBody} disabled={!item.state} key={item.id}>
-    //         <a>{item.denomination}</a>
-    //     </button>
-    //   </div>
-    //   )
-    // ))}
-
   }
 
 }

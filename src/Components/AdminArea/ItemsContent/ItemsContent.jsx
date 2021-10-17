@@ -41,9 +41,6 @@ render(){
     <section>
       <div className={s.ItemsContent}>
         <AdminItem/>
-        <AdminItem/>
-        <AdminItem/>
-        <AdminItem/>
       </div>
     </section>
     );

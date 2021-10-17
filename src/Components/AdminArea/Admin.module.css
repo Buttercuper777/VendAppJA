@@ -39,7 +39,15 @@
     border-radius: 30px;
     padding: 20px;
     margin-bottom: 15px;
+    transition: opacity 1s;
+    opacity: 1;
 }
+
+.AdminItem.hide{
+    transition: opacity 1s;
+    opacity: 0;
+}
+
 .ItemImg {
     width: 100px;
     height: 100px;

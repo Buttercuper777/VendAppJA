@@ -13,7 +13,7 @@ namespace KrupinWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class ProdItemsController : ControllerBase
     {
         private readonly DBContext _context;
@@ -112,6 +112,7 @@ namespace KrupinWebApi.Controllers
         }
 
         // DELETE: api/ProdItems/5
+        [AllowAnonymous]
         [HttpDelete("{id}")]
         public async Task<ActionResult<ProdItem>> DeleteProdItem(int id)
         {
