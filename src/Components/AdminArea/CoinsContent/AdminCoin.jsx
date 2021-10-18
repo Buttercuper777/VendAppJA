@@ -8,7 +8,8 @@ export default class AdminCoin extends Component{
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      chenged : false
     };
   }
 
@@ -31,7 +32,8 @@ export default class AdminCoin extends Component{
 
       //console.log(requestOptions.body);
 
-      fetch('https://localhost:5001/api/Coins/' + id, requestOptions)
+      fetch('https://localhost:5001/api/Coins/' + id, requestOptions);
+      this.setState({chenged : this.state.chenged ? false : true});
     }
   }
 
@@ -66,7 +68,8 @@ componentDidMount(){
     (result) => {
       this.setState({
         isLoaded: true,
-        items: result
+        items: result,
+        chenged : false
       });
     }, 
     (error) => {
@@ -78,9 +81,29 @@ componentDidMount(){
   )
 }
 
+componentDidUpdate(){
+  fetch("https://localhost:5001/api/Coins")
+  .then(res => res.json())
+  .then(
+    (result) => {
+      this.setState({
+        isLoaded: true,
+        items: result,
+        chenged : false
+      });
+    }, 
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+  )  
+}
+
 
 render(){
-  const {error, isLoaded, items} = this.state;
+  const {error, isLoaded, items, chenged} = this.state;
   if (error){
     return <p>Error {error.message}</p>
   }

@@ -8,7 +8,8 @@ export default class AdminItem extends Component{
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      chenged: false
     };
   }
   
@@ -65,10 +66,30 @@ export default class AdminItem extends Component{
       // console.log(requestOptions.body);
 
       fetch('https://localhost:5001/api/ProdItems/' + id, requestOptions)
+      this.setState({chenged : this.state.chenged ? false : true});
     }
   }
 
 componentDidMount(){
+  fetch("https://localhost:5001/api/ProdItems")
+  .then(res => res.json())
+  .then(
+    (result) => {
+      this.setState({
+        isLoaded: true,
+        items: result
+      });
+    }, 
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+  )
+}
+
+componentDidUpdate(){
   fetch("https://localhost:5001/api/ProdItems")
   .then(res => res.json())
   .then(
