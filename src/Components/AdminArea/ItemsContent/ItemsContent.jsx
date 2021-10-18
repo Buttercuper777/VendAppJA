@@ -5,7 +5,7 @@ import ItemAdder from './ItemAdder';
 
 const ItemsContent = (props) => {
   const [moadlActive, setModalActive] = useState(false);
-  
+
   return(
     <div>
       <ItemAdder active={moadlActive} setActive={setModalActive}/>

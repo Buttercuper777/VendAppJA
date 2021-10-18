@@ -25,6 +25,7 @@
     color: rgb(108, 128, 240);
     transition: 0.3s;
 }
+
 .ItemsContent{
     display: flex;
     flex-direction: column;
