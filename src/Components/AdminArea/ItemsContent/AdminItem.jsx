@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import s from '../Admin.module.css';
 import { useState } from 'react';
-import ItemAdder from './ItemAdder';
-
-// function useForceUpdate(){
-//   const [value, setValue] = useState(0); // integer state
-//   return () => setValue(value => value + 1); // update the state to force render
-// }
 
 export default class AdminItem extends Component{
   constructor(props){
@@ -114,9 +108,11 @@ render(){
 
           <div className={s.ItemInputBlock}>
             <input id={item.id + '_name'} placeholder="Название" type="text"/>
-            <input id={item.id + '_price'} placeholder="Цена" type="number" />
+            <input id={item.id + '_price'} placeholder="Цена" min="1" type="number" onInput={(e) => e.target.value = 
+ !!e.target.value && Math.abs(e.target.value) >= 0 ? Math.abs(e.target.value) : null}/>
             <input id={item.id + '_imgPath'} placeholder="URL Картинки" type="text" onChange={e => this.onTodoChange(item.id, e.target.value, item.imgPath)} />
-            <input id={item.id + '_num'} placeholder="Количество" type="number" />
+            <input id={item.id + '_num'} placeholder="Количество" min="1" type="number" onInput={(e) => e.target.value = 
+ !!e.target.value && Math.abs(e.target.value) >= 0 ? Math.abs(e.target.value) : null}/>
           </div>
 
         </div>

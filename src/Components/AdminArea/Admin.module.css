@@ -67,6 +67,13 @@
 .ItemImg img{
     height: 100%;
 }
+.ItemImg p{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 35px;
+    color: #4061cc;
+}
 .ItemId{
     font-weight: 700;
     font-size: 17px;
@@ -91,6 +98,13 @@
 .ItemInputBlock input:focus{
     outline: none;
     border:none;    
+}
+
+.ItemInputBlock input[type="checkbox"]{
+    float: left !important;
+    width: 30px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 .ItemData{
     display: flex;
