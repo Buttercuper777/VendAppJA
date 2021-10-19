@@ -9,6 +9,7 @@ namespace KrupinWebApi.Model
     {
         public int Id { get; set; }
         public int Denomination { get; set; }
+        public int Number { get; set; }
         public bool State { get; set; }
     }
 }

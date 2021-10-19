@@ -29,6 +29,9 @@ namespace KrupinWebApi.Migrations
                     b.Property<int>("Denomination")
                         .HasColumnType("int");
 
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
@@ -91,7 +94,7 @@ namespace KrupinWebApi.Migrations
                         new
                         {
                             Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-                            ConcurrencyStamp = "208d29d5-942d-4b9e-93bf-166961321f8d",
+                            ConcurrencyStamp = "79e32a68-41ba-4f41-a6cf-757a87aaf3aa",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -190,11 +193,11 @@ namespace KrupinWebApi.Migrations
                         {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bec7536d-e713-4468-a8bf-6380817dd15f",
+                            ConcurrencyStamp = "7737a66c-07d7-4c59-b282-e60f576cfd40",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMnBMABpKc2BgiADfZdwd9EUb27Lc75OWRSwDlH9BfvvzuLzgha3uQLiRE672ebCmA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM0BzlDXud3b80jENtV81GD47OlSY6KRis3xKz2wxyt9BwO14UBsJKNP0P3fvJIs+A==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

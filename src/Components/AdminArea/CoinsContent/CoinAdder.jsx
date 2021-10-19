@@ -15,7 +15,7 @@ const ItemAdder = ({active, setActive}) => {
 
 
   // ADD ITEM
-  function onCreateItem(dem, state){
+  function onCreateItem(dem, state, num){
     let editConfirm = window.confirm("Добавить новую купюру: " + dem + "₽");
       if(editConfirm){
         const requestOptions = {
@@ -27,7 +27,9 @@ const ItemAdder = ({active, setActive}) => {
           },
           body: JSON.stringify({
           denomination: parseInt(dem),
-          state: state})
+          state: state,
+          number: parseInt(num)
+        })
       };
 
       fetch('https://localhost:5001/api/Coins/', requestOptions)
@@ -51,6 +53,8 @@ const ItemAdder = ({active, setActive}) => {
           <div className={s.ItemInputBlock}>
             <input id='_price' placeholder="Достоинство" min="1" type="number" onInput={(e) => e.target.value = 
             !!e.target.value && Math.abs(e.target.value) >= 0 ? Math.abs(e.target.value) : null}/>
+             <input id='_num' placeholder="Количество" min="1" type="number" onInput={(e) => e.target.value = 
+            !!e.target.value && Math.abs(e.target.value) >= 0 ? Math.abs(e.target.value) : null}/>
             <input type="checkbox" id="_check" onClick={e => onChState(e.target.checked, e.target.id)}/>
           </div>
         </div>
@@ -58,7 +62,8 @@ const ItemAdder = ({active, setActive}) => {
         <div className={s.ItemBtnBlock}>
         <button className={s.EditBtn} onClick={ e => onCreateItem(
             document.getElementById("_price").value,
-            document.getElementById("_check").checked
+            document.getElementById("_check").checked,
+            document.getElementById("_num").value 
           )}>Добавить</button>
           <button className={s.DelBtn} onClick={() => setActive(false)}>Отмена</button>
         </div>

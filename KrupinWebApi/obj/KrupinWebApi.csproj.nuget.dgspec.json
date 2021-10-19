@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work Projects\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj": {}
+    "D:\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj": {}
   },
   "projects": {
-    "D:\\Work Projects\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj": {
+    "D:\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work Projects\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj",
+        "projectUniqueName": "D:\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj",
         "projectName": "KrupinWebApi",
-        "projectPath": "D:\\Work Projects\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj",
-        "packagesPath": "C:\\Users\\black\\.nuget\\packages\\",
-        "outputPath": "D:\\Work Projects\\VendAppJA\\KrupinWebApi\\obj\\",
+        "projectPath": "D:\\VendAppJA\\KrupinWebApi\\KrupinWebApi.csproj",
+        "packagesPath": "C:\\Users\\webma\\.nuget\\packages\\",
+        "outputPath": "D:\\VendAppJA\\KrupinWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\black\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\webma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
         }
       }
     }

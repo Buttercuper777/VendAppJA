@@ -26,7 +26,8 @@ export default class AdminCoin extends Component{
           },
           body: JSON.stringify({ id: id,
           denomination:  parseInt(document.getElementById(id + '_price').value),
-          state: (document.getElementById(id + '_check').checked)
+          state: (document.getElementById(id + '_check').checked),
+          number : parseInt(document.getElementById(id + '_num').value)
           })
         }
 
@@ -117,12 +118,14 @@ render(){
 
           <div>
             <div className={s.ItemImg}>
-              <p>{item.denomination + "₽"}</p>
+              <p>{item.denomination + "₽ (" + item.number + ")"}</p>
             </div>
           </div>
 
           <div className={s.ItemInputBlock}>
             <input id={item.id + '_price'} placeholder="Достоинство" min="1" type="number" onInput={(e) => e.target.value = 
+ !!e.target.value && Math.abs(e.target.value) >= 0 ? Math.abs(e.target.value) : null}/>
+             <input id={item.id + '_num'} placeholder="Количество" min="1" type="number" onInput={(e) => e.target.value = 
  !!e.target.value && Math.abs(e.target.value) >= 0 ? Math.abs(e.target.value) : null}/>
             <input type="checkbox" id={item.id + "_check"} onClick={e => this.onChState(e.target.checked, item.id)}/>
           </div>

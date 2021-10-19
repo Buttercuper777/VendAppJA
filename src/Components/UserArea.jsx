@@ -7,7 +7,6 @@ function UserArea() {
   return (
     <BrowserRouter>
       <div>
-          <CoinsManager/>
         <section>
           <Route path="/" component={Vend}/>
         </section>

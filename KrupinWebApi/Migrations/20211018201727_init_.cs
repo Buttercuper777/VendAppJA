@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KrupinWebApi.Migrations
 {
-    public partial class _initial : Migration
+    public partial class init_ : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,6 +53,7 @@ namespace KrupinWebApi.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Denomination = table.Column<int>(nullable: false),
+                    Number = table.Column<int>(nullable: false),
                     State = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -185,12 +186,12 @@ namespace KrupinWebApi.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "44546e06-8719-4ad8-b88a-f271ae9d6eab", "208d29d5-942d-4b9e-93bf-166961321f8d", "admin", "ADMIN" });
+                values: new object[] { "44546e06-8719-4ad8-b88a-f271ae9d6eab", "79e32a68-41ba-4f41-a6cf-757a87aaf3aa", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "bec7536d-e713-4468-a8bf-6380817dd15f", null, true, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEMnBMABpKc2BgiADfZdwd9EUb27Lc75OWRSwDlH9BfvvzuLzgha3uQLiRE672ebCmA==", null, false, "", false, "admin" });
+                values: new object[] { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "7737a66c-07d7-4c59-b282-e60f576cfd40", null, true, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEM0BzlDXud3b80jENtV81GD47OlSY6KRis3xKz2wxyt9BwO14UBsJKNP0P3fvJIs+A==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

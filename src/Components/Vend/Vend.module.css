@@ -3,5 +3,6 @@
     width: 100%;
     grid-template-columns: auto 350px;
     grid-column-gap: 15px;
+    margin-top: 50px;
     /* border: solid 1px #000; */
 }

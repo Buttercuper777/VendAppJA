@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import s from './Coin.module.css';
 
+
 export default class Coin extends Component{
   constructor(props){
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      coin : 0
     };
-}
+  }
+
+
 
 componentDidMount(){
   fetch("https://localhost:5001/api/Coins/")
@@ -31,6 +35,7 @@ componentDidMount(){
 }
 
 
+
 render(){
     const {error, isLoaded, items} = this.state;
     if (error){
@@ -39,7 +44,7 @@ render(){
     return (
       items.map(item =>(
       <div>
-        <button className={s.coinBody} disabled={!item.state} key={item.id}>
+        <button className={s.coinBody} disabled={!item.state} key={item.id} onClick={() => this.props.onAddCoin(item.denomination)}>
             <a>{item.denomination}</a>
         </button>
       </div>
