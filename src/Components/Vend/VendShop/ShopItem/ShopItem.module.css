@@ -3,6 +3,9 @@
     margin-bottom: 20px !important;
     margin: 0px 10px;
     /* border: solid 1px #000; */
+    border: none;
+    outline: none;
+    background: #fff;
 }
 .itemImg{
     width: 100%;

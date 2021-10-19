@@ -31,6 +31,14 @@ componentDidMount(){
   )
 }
 
+canBuyChecker(price){
+  if(this.props.sum >= price){
+    alert("can buy");
+  }
+  else { 
+    alert(" =( ");
+  }
+}
 
   render(){
     const {error, isLoaded, items} = this.state;
@@ -39,7 +47,7 @@ componentDidMount(){
     }
     return(
       items.map(item => (
-      <div className={s.ShopItem} key={item.id}>
+      <button className={s.ShopItem} key={item.id} onClick={() => this.canBuyChecker(item.price)}>
         <div className={s.itemImg}>
 
           <div className={s.BShow}>
@@ -56,7 +64,7 @@ componentDidMount(){
           </div>
           <p className={s.price}>{item.price}₽</p>
         </div>
-      </div>
+      </button>
       ))
     )
   }

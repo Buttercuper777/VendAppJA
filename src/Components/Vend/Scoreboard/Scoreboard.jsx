@@ -16,6 +16,11 @@ setNewSum = (ns, val) =>{
   this.setState({coins: [...this.state.coins, val]});
 }
 
+componentDidUpdate(prevState){
+  if(prevState.sum !== this.state.sum)
+    this.props.newSum(this.state.sum);
+}
+
   render(){
     return (
         <div className={s.ScoreboardBody}>
