@@ -32,12 +32,13 @@ componentDidMount(){
 }
 
 canBuyChecker(price){
-  if(this.props.sum >= price){
-    alert("can buy");
-  }
-  else { 
-    alert(" =( ");
-  }
+  let monArr = (this.props.sum);
+  let monSum = ((this.props.sum).reduce((a, b) => a + b, 0));
+
+  if(monSum >= price)
+    alert('))');
+  else  
+    alert('Недостаточно средств для покупки');
 }
 
   render(){

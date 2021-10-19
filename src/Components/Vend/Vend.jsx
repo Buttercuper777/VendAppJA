@@ -5,7 +5,7 @@ import s from './Vend.module.css';
 
 
 function Vend(props) {
-  const [finalSum, sumSetter] = useState(0);
+  const [finalSum, sumSetter] = useState([]);
  
   return (
     <div>

@@ -16,9 +16,9 @@ setNewSum = (ns, val) =>{
   this.setState({coins: [...this.state.coins, val]});
 }
 
-componentDidUpdate(prevState){
-  if(prevState.sum !== this.state.sum)
-    this.props.newSum(this.state.sum);
+componentDidUpdate(prevState){              //Switch {.coins/.sum}
+  if(prevState.coins !== this.state.coins)
+    this.props.newSum(this.state.coins);
 }
 
   render(){
