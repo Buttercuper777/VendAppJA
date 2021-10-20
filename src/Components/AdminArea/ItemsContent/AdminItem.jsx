@@ -64,8 +64,9 @@ export default class AdminItem extends Component{
       };
 
       // console.log(requestOptions.body);
+      debugger
 
-      fetch('https://localhost:5001/api/ProdItems/' + id, requestOptions)
+      fetch('https://localhost:5001/api/ProdItems/' + id, requestOptions);
       this.setState({chenged : this.state.chenged ? false : true});
     }
   }

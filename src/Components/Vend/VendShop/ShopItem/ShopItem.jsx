@@ -31,12 +31,17 @@ componentDidMount(){
   )
 }
 
-canBuyChecker(price){
+canBuyChecker(price, itemId){
+  debugger 
   let monArr = (this.props.sum);
-  let monSum = ((this.props.sum).reduce((a, b) => a + b, 0));
+  let monSum = ((this.props.sum).reduce((a, b) => a + b, 0)); //here!!
 
-  if(monSum >= price)
-    alert('))');
+  if(monSum.reduce((a, b) => a + b, 0) >= price){ 
+    let reqContext ={
+    "prodId" : itemId,
+    "coins": monArr
+    }
+  }
   else  
     alert('Недостаточно средств для покупки');
 }
@@ -48,7 +53,7 @@ canBuyChecker(price){
     }
     return(
       items.map(item => (
-      <button className={s.ShopItem} key={item.id} onClick={() => this.canBuyChecker(item.price)}>
+      <button className={s.ShopItem} key={item.id} onClick={() => this.canBuyChecker(item.price, item.id)}>
         <div className={s.itemImg}>
 
           <div className={s.BShow}>

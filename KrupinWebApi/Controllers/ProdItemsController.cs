@@ -46,26 +46,6 @@ namespace KrupinWebApi.Controllers
             return prodItem;
         }
 
-        [AllowAnonymous]
-        [HttpPost("{id}")]
-        public async Task<ActionResult<ProdItem>> PatchProdItem(int id)
-        {
-            var prodItem = await _context.ProdItem.FindAsync(id);
-            if (prodItem == null)
-            {
-                return NotFound();
-            }
-
-            if(prodItem.Number > 0)
-            {
-                prodItem.Number--;
-                _context.ProdItem.Update(prodItem);
-                await _context.SaveChangesAsync();
-            }
-
-            return prodItem;
-        }
-
 
         // PUT: api/ProdItems/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -125,6 +105,29 @@ namespace KrupinWebApi.Controllers
 
             _context.ProdItem.Remove(prodItem);
             await _context.SaveChangesAsync();
+
+            return prodItem;
+        }
+
+        //BUYER(PUT): api/buyer/5
+        [Route("buyer/{id}")]
+        [HttpPost("{id}")]
+        public async Task<ActionResult<ProdItem>> PatchProdItem(int id)
+        {
+            var prodItem = await _context.ProdItem.FindAsync(id);
+            if (prodItem == null)
+            {
+                return NotFound();
+            }
+
+            if (prodItem.Number > 0)
+            {
+                prodItem.Number--;
+                _context.ProdItem.Update(prodItem);
+                await _context.SaveChangesAsync();
+            }
+            else
+                return BadRequest();
 
             return prodItem;
         }

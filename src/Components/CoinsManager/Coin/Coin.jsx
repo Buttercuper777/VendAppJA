@@ -44,7 +44,7 @@ render(){
     return (
       items.map(item =>(
       <div>
-        <button className={s.coinBody} disabled={!item.state} key={item.id} onClick={() => this.props.onAddCoin(item.denomination)}>
+        <button className={s.coinBody} disabled={!item.state} key={item.id} onClick={() => this.props.onAddCoin(item.id)}>
             <a>{item.denomination}</a>
         </button>
       </div>
